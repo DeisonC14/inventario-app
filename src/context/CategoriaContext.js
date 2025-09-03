@@ -6,9 +6,9 @@ import NotificationContext from "context/NotificationContext";
 import LoadingContext from "context/LoadingContext";
 import { useNavigate } from "react-router";
 
-const ProveedorContext = createContext();
+const CategoriaContext = createContext();
 
-const ProveedorProvider = ({children}) => {
+const CategoriaProvider = ({children}) => {
 
     const [toDetail, setToDetail] = useState();
     const [toUpdate, setToUpdate] = useState();
@@ -25,7 +25,7 @@ const ProveedorProvider = ({children}) => {
     const { db } = state;
 
     let api = helpHttp();
-    let url = REACT_APP_API_URL+"proveedor";
+    let url = REACT_APP_API_URL+"categoria";
 
     useEffect(() => {
         fetchData();
@@ -70,7 +70,7 @@ const ProveedorProvider = ({children}) => {
         api.post(endpoint, options).then((res) => {
             if(!res.err){
                 dispatch({ type: TYPES.CREATE_DATA, payload: res.data });
-                navigate('/admin/proveedor/');
+                navigate('/admin/categoria/');
                 setType("success");
                 setMessage("El registro fue guardado con exito");
                 setStatus(1);
@@ -94,7 +94,7 @@ const ProveedorProvider = ({children}) => {
             if(!res.err){
                 setDetail(res.data);
                 dispatch({ type: TYPES.UPDATE_DATA, payload: res.data });
-                navigate('/admin/proveedor');
+                navigate('/admin/categoria');
                 setType("success");
                 setMessage("El registro fue actualizado correctamente.");
                 setStatus(1);
@@ -132,8 +132,8 @@ const ProveedorProvider = ({children}) => {
         setModule, setDetail 
     };
 
-    return <ProveedorContext.Provider value={data}>{children}</ProveedorContext.Provider>;
+    return <CategoriaContext.Provider value={data}>{children}</CategoriaContext.Provider>;
 }
 
-export { ProveedorProvider };
-export default ProveedorContext;
+export { CategoriaProvider };
+export default CategoriaContext;
