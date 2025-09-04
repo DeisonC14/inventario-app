@@ -21,6 +21,7 @@ import Proveedor from "views/pages/proveedor/Index.js";
 import Cliente from "views/pages/cliente/Index.js";
 import Categoria from "views/pages/categoria/Index.js";
 import Caracteristica from "views/pages/caracteristica/Index.js";
+import Articulo from "views/pages/articulo/Index.js";
 
 var routes = [
   {
@@ -40,14 +41,14 @@ var routes = [
   {
     path: "/cliente",
     name: "Cliente",
-    icon: "ni ni-circle-08 text-primary",
+    icon: "ni ni-single-02 text-primary",
     component: <Cliente />,
     layout: "/admin",
   },
   {
     path: "/categoria",
     name: "Categoria",
-    icon: "ni ni-list-67 text-primary",
+    icon: "ni ni-tag text-primary",
     component: <Categoria />,
     layout: "/admin",
   },
@@ -56,6 +57,13 @@ var routes = [
     name: "Caracteristica",
     icon: "ni ni-single-copy-04 text-primary",
     component: <Caracteristica />,
+    layout: "/admin",
+  },
+  {
+    path: "/articulo",
+    name: "Articulo",
+    icon: "ni ni-single-02 text-primary",
+    component: <Articulo />,
     layout: "/admin",
   },
   {

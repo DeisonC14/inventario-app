@@ -75,7 +75,7 @@ const Formulario = ( ) => {
                     <CardHeader className="">
                       <div className="align-items-center row">
                         <div className="col-11">
-                          <h3 className="mb-0">{module?.toUpperCase()} Categoria</h3>
+                          <h3 className="mb-0">{module?.toUpperCase()} CATEGORIA</h3>
                           <p className="text-sm mb-0">
                             Formulario de gestion de categoria
                           </p>
@@ -92,7 +92,7 @@ const Formulario = ( ) => {
                                         className="form-control-label"
                                         htmlFor="input-descripcion"
                                         >
-                                        descripcion <span className="text-danger">*</span>
+                                        Descripcion <span className="text-danger">*</span>
                                         </label>
                                         <Input
                                         className="form-control"
