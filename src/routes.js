@@ -22,6 +22,7 @@ import Cliente from "views/pages/cliente/Index.js";
 import Categoria from "views/pages/categoria/Index.js";
 import Caracteristica from "views/pages/caracteristica/Index.js";
 import Articulo from "views/pages/articulo/Index.js";
+import Compra from "views/pages/compra/Index.js";
 
 var routes = [
   {
@@ -64,6 +65,13 @@ var routes = [
     name: "Articulo",
     icon: "ni ni-single-02 text-primary",
     component: <Articulo />,
+    layout: "/admin",
+  },
+  {
+    path: "/compra",
+    name: "Compra",
+    icon: "ni ni-credit-card text-primary",
+    component: <Compra />,
     layout: "/admin",
   },
   {
