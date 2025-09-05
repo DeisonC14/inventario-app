@@ -14,16 +14,16 @@ import {
 import NotificationContext from "context/NotificationContext";
 import LoadingContext from "context/LoadingContext";
 import { useNavigate } from "react-router";
-import CategoriaContext from "./CategoriaContext";
+import ProveedorContext from "./ProveedorContext";
 
-const ArticuloContext = createContext();
+const CompraContext = createContext();
 
-const ArticuloProvider = ({ children }) => {
+const CompraProvider = ({ children }) => {
   const [toDetail, setToDetail] = useState();
   const [toUpdate, setToUpdate] = useState();
   const [detail, setDetail] = useState({});
   const [module, setModule] = useState();
-  const [categorias, setCategorias] = useState([]);
+  const [proveedores, setProveedores] = useState([]);
 
   const navigate = useNavigate();
   const { REACT_APP_API_URL } = process.env;
@@ -35,11 +35,11 @@ const ArticuloProvider = ({ children }) => {
   const { db } = state;
 
   let api = helpHttp();
-  let url = REACT_APP_API_URL + "articulo";
+  let url = REACT_APP_API_URL + "compra";
 
   useEffect(() => {
     fetchData();
-    fetchDataCategorias();
+    fetchDataProveedores();
   }, []);
 
   useEffect(() => {
@@ -64,29 +64,27 @@ const ArticuloProvider = ({ children }) => {
     setLoading(true);
     url = url + "/" + toUpdate;
     api.get(url).then((res) => {
-      res.data.categoria = res.data.categoria.id;
+      res.data.proveedor = res.data.proveedor.id;
       setDetail(res.data);
       setLoading(false);
     });
   };
-
-  const fetchDataCategorias = () => {
-    let urlFetch = REACT_APP_API_URL + "categoria";
-    api.get(urlFetch).then((res) => {
+  const fetchDataProveedores = () => {
+    let urlProveedores = REACT_APP_API_URL + "proveedor";
+    api.get(urlProveedores).then((res) => {
       var data = res.data.map(function (obj) {
-        obj.text = obj.text || obj.descripcion;
+        obj.text = obj.text || obj.nombre;
         return obj;
       });
-      setCategorias(data);
+      setProveedores(data);
     });
   };
 
   const saveData = (data) => {
     setLoading(true);
     let endpoint = url;
-    let categoria = { id: data.categoria };
     let newData = data;
-    newData.categoria = categoria;
+    newData.proveedor = newData.proveedor;
     delete newData.id;
     let options = {
       body: newData,
@@ -95,7 +93,7 @@ const ArticuloProvider = ({ children }) => {
     api.post(endpoint, options).then((res) => {
       if (!res.err) {
         dispatch({ type: TYPES.CREATE_DATA, payload: res.data });
-        navigate("/admin/articulo/");
+        navigate("/admin/compra/");
         setType("success");
         setMessage("El registro fue guardado con exito");
         setStatus(1);
@@ -108,9 +106,8 @@ const ArticuloProvider = ({ children }) => {
   const updateData = (data) => {
     setLoading(true);
     let endpoint = url + "/" + data.id;
-    let categoria = { id: data.categoria };
-    newData.categoria = categoria;
     let newData = data;
+    newData.proveedor = newData.proveedor;
     delete newData.id;
     let options = {
       body: newData,
@@ -120,9 +117,9 @@ const ArticuloProvider = ({ children }) => {
       if (!res.err) {
         setDetail(res.data);
         dispatch({ type: TYPES.UPDATE_DATA, payload: res.data });
-        navigate("/admin/articulo");
+        navigate("/admin/compra");
         setType("success");
-        setMessage("The registry was updated correctly");
+        setMessage("El registro fue actualizado correctamente.");
         setStatus(1);
       } else {
       }
@@ -141,7 +138,7 @@ const ArticuloProvider = ({ children }) => {
       if (!res.err) {
         dispatch({ type: TYPES.DELETE_DATA, payload: id });
         setType("success");
-        setMessage("The registry was deleted correctly");
+        setMessage("El registro fue eliminado correctamente");
         setStatus(1);
       } else {
         setType("danger");
@@ -163,13 +160,13 @@ const ArticuloProvider = ({ children }) => {
     module,
     setModule,
     setDetail,
-    categorias,
+    proveedores,
   };
 
   return (
-    <ArticuloContext.Provider value={data}>{children}</ArticuloContext.Provider>
+    <CompraContext.Provider value={data}>{children}</CompraContext.Provider>
   );
 };
 
-export { ArticuloProvider };
-export default ArticuloContext;
+export { CompraProvider };
+export default CompraContext;
