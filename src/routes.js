@@ -23,6 +23,7 @@ import Categoria from "views/pages/categoria/Index";
 import Cliente from "views/pages/cliente/Index";
 import Articulo from "views/pages/articulo/Index";
 import Compra from "views/pages/compra/Index";
+import Venta from "views/pages/venta/Index";
 
 var routes = [
   {
@@ -37,6 +38,13 @@ var routes = [
     name: "Compra",
     icon: "ni ni-cart text-success",
     component: <Compra />,
+    layout: "/admin",
+  },
+  {
+    path: "/venta",
+    name: "Venta",
+    icon: "ni ni-cart text-success",
+    component: <Venta />,
     layout: "/admin",
   },
   {
