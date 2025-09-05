@@ -77,7 +77,7 @@ const Formulario = ( ) => {
                         <div className="col-11">
                           <h3 className="mb-0">{module?.toUpperCase()} CARACTERISTICA</h3>
                           <p className="text-sm mb-0">
-                            Formulario de gestion de Caracteristica
+                            Formulario de gestion de caracteristicas
                           </p>
                         </div>
                       </div>
@@ -104,14 +104,13 @@ const Formulario = ( ) => {
                                         invalid={errors.descripcion !== ""}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={form.descripcion}
+                                        defaultValue={data.descripcion}
                                         />
                                         <div className="invalid-feedback">
                                             {errors.descripcion}
                                         </div>
                                     </FormGroup>
                                 </Col>
-                                
                             </Row>
                             <Row className="col justify-content-end">
                                 {module == "actualizar" ? (

@@ -27,9 +27,9 @@ function List({ tab }) {
   );
 
   const columns = [
-    { name: "ID", selector: row => row.id, sortable: true },
+    { name: "ID", selector: row => row.id, sortable: true, width: "100px", },
     { name: "Descripcion", selector: row => row.descripcion, sortable: true },
-    { name: "Acciones", cell: row => (
+    { name: "Acciones", width: "200px", cell: row => (
       <> 
       <Link className='btn btn-primary btn-sm'
             color="primary"
@@ -94,7 +94,7 @@ function List({ tab }) {
   return (
     <>
     {state.alert}
-    <Header brandText="Categoria" />
+    <Header brandText="Categorias" />
     <Container className="mt--7" fluid>
       <Row>
         <div className="col">
@@ -102,9 +102,9 @@ function List({ tab }) {
             <CardHeader className="">
               <div className="align-items-center row">
                 <div className="col-11">
-                  <h3 className="mb-0">Categoria</h3>
+                  <h3 className="mb-0">Categorias</h3>
                   <p className="text-sm mb-0">
-                    Listado de Categorias registradas en el sistema
+                    Listado de categorias registradas en el sistema
                   </p>
                 </div>
               </div>

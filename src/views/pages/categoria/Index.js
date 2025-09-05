@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import List from "./List";
 import Form from "./Form";
 
-import { CategoriaProvider} from "context/CategoriaContext";
+import { CategoriaProvider } from "context/CategoriaContext";
 
 const Index = () => {
 

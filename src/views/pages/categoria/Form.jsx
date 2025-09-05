@@ -77,7 +77,7 @@ const Formulario = ( ) => {
                         <div className="col-11">
                           <h3 className="mb-0">{module?.toUpperCase()} CATEGORIA</h3>
                           <p className="text-sm mb-0">
-                            Formulario de gestion de categoria
+                            Formulario de gestion de categorias
                           </p>
                         </div>
                       </div>
@@ -111,7 +111,6 @@ const Formulario = ( ) => {
                                         </div>
                                     </FormGroup>
                                 </Col>
-                                
                             </Row>
                             <Row className="col justify-content-end">
                                 {module == "actualizar" ? (

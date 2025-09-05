@@ -1,21 +1,20 @@
 export const validationsForm = (form) => {
     let errores = {};
-    let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-    let regexComments = /^.{1,255}$/;
     let regexText40 = /^.{1,40}$/;
 
     if (!form.descripcion) {
         errores.descripcion = "Please the field is required.";
     } else if (!regexText40.test(form.descripcion.trim())) {
-        errores.descripcion= "The field accepts up to 40 characters.";
+        errores.descripcion = "The field accepts up to 40 characters.";
     } else{
         errores.descripcion = "";
     }
+
     return errores;
 };
 
-const CategoriaForm = {
+const CaracteristicaForm = {
     validationsForm,
   };
   
-  export default CategoriaForm;
+  export default CaracteristicaForm;

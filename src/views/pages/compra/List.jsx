@@ -11,7 +11,8 @@ import ReactBSAlert from "react-bootstrap-sweetalert";
 function List({ tab }) {
 
   const { 
-    db:data, setDetail,  setToDetail, setToUpdate, setViewModal, setModule, deleteData
+    db:data, setDetail,  setToDetail, setToUpdate, setViewModal, setModule, 
+    deleteData, setArticulosCompraEnviar, setArticulosCompra
   } = useContext(CompraContext);
 
   const [filter, setFilter] = useState("");
@@ -27,12 +28,11 @@ function List({ tab }) {
   );
 
   const columns = [
-    { name: "ID", selector: row => row.id, sortable: true },
+    { name: "ID", selector: row => row.id, sortable: true, width: "100px" },
     { name: "Fecha", selector: row => row.fecha, sortable: true },
-    { name: "Valor", selector: row => row.valor, sortable: true },
     { name: "Proveedor", selector: row => row.proveedor.nombre, sortable: true },
-    { name: "Detalle", selector: row => row.detalle, sortable: true },
-    { name: "Acciones", cell: row => (
+    { name: "Valor", selector: row => row.valor, sortable: true },
+    { name: "Acciones", width: "200px", cell: row => (
       <> 
       <Link className='btn btn-primary btn-sm'
             color="primary"
@@ -81,6 +81,8 @@ function List({ tab }) {
   useEffect(() => {
     setDetail({});
     setToUpdate(0);
+    setArticulosCompraEnviar([]);
+    setArticulosCompra([]);
   },[]);
 
   useEffect(() => {
@@ -97,7 +99,7 @@ function List({ tab }) {
   return (
     <>
     {state.alert}
-    <Header brandText="Compras" />
+    <Header brandText="Proveedores" />
     <Container className="mt--7" fluid>
       <Row>
         <div className="col">
@@ -107,7 +109,7 @@ function List({ tab }) {
                 <div className="col-11">
                   <h3 className="mb-0">Compras</h3>
                   <p className="text-sm mb-0">
-                    Listado de compras registradas en el sistema
+                    Listado de compras registrados en el sistema
                   </p>
                 </div>
               </div>

@@ -17,61 +17,61 @@
 */
 import Index from "views/Index.js";
 import Login from "views/examples/Login.js";
-import Proveedor from "views/pages/proveedor/Index.js";
-import Cliente from "views/pages/cliente/Index.js";
-import Categoria from "views/pages/categoria/Index.js";
-import Caracteristica from "views/pages/caracteristica/Index.js";
-import Articulo from "views/pages/articulo/Index.js";
-import Compra from "views/pages/compra/Index.js";
+import Proveedor from "views/pages/proveedor/Index";
+import Caracteristica from "views/pages/caracteristica/Index";
+import Categoria from "views/pages/categoria/Index";
+import Cliente from "views/pages/cliente/Index";
+import Articulo from "views/pages/articulo/Index";
+import Compra from "views/pages/compra/Index";
 
 var routes = [
   {
     path: "/index",
     name: "Dashboard",
-    icon: "ni ni-tv-2 text-primary",
+    icon: "ni ni-tv-2 text-danger",
     component: <Index />,
+    layout: "/admin",
+  },
+  {
+    path: "/compra",
+    name: "Compra",
+    icon: "ni ni-cart text-success",
+    component: <Compra />,
+    layout: "/admin",
+  },
+  {
+    path: "/articulo",
+    name: "Articulo",
+    icon: "ni ni-tag text-success",
+    component: <Articulo />,
     layout: "/admin",
   },
   {
     path: "/proveedor",
     name: "Proveedor",
-    icon: "ni ni-watch-time text-primary",
+    icon: "ni ni-delivery-fast text-success",
     component: <Proveedor />,
     layout: "/admin",
   },
   {
     path: "/cliente",
     name: "Cliente",
-    icon: "ni ni-single-02 text-primary",
+    icon: "ni ni-user-run text-primary",
     component: <Cliente />,
-    layout: "/admin",
-  },
-  {
-    path: "/categoria",
-    name: "Categoria",
-    icon: "ni ni-tag text-primary",
-    component: <Categoria />,
     layout: "/admin",
   },
   {
     path: "/caracteristica",
     name: "Caracteristica",
-    icon: "ni ni-single-copy-04 text-primary",
+    icon: "ni ni-collection text-primary",
     component: <Caracteristica />,
     layout: "/admin",
   },
   {
-    path: "/articulo",
-    name: "Articulo",
-    icon: "ni ni-single-02 text-primary",
-    component: <Articulo />,
-    layout: "/admin",
-  },
-  {
-    path: "/compra",
-    name: "Compra",
-    icon: "ni ni-credit-card text-primary",
-    component: <Compra />,
+    path: "/categoria",
+    name: "Categoria",
+    icon: "ni ni-books text-primary",
+    component: <Categoria />,
     layout: "/admin",
   },
   {

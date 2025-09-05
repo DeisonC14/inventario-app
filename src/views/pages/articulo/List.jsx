@@ -27,12 +27,13 @@ function List({ tab }) {
   );
 
   const columns = [
-    { name: "ID", selector: row => row.id, sortable: true },
+    { name: "ID", selector: row => row.id, sortable: true, width: "100px" },
     { name: "Nombre", selector: row => row.nombre, sortable: true },
     { name: "Descripcion", selector: row => row.descripcion, sortable: true },
     { name: "Cantidad", selector: row => row.cantidad, sortable: true },
     { name: "Categoria", selector: row => row.categoria.descripcion, sortable: true },
-    { name: "Estado", cell: row => (
+    { name: "Estado", selector: row => row.estado, sortable: true },
+    { name: "Acciones", width: "200px", cell: row => (
       <> 
       <Link className='btn btn-primary btn-sm'
             color="primary"
@@ -97,7 +98,7 @@ function List({ tab }) {
   return (
     <>
     {state.alert}
-    <Header brandText="Articulos" />
+    <Header brandText="Proveedores" />
     <Container className="mt--7" fluid>
       <Row>
         <div className="col">
